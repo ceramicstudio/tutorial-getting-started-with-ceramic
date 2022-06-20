@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <title>Getting Started</title>
+</head>
+
+<body>
+    <!-- create header with connect button -->
+    <header class="SiteHeader">
+        <div class="HeaderContainer">
+            <h1 id="pageTitle">Getting Start With Ceramic</h1>
+        </div>
+        <div class="HeaderContainer">
+            <button id="walletBtn"></button>
+        </div>
+
+    </header>
+    <div class="MainCont">
+        <div class="DataBlocks">
+            <div class="DataBlock">
+                <div id="basicProfile">
+                    <div class="BodyContainer">
+                        <h2>Basic Profile</h2>
+                        <p>Read from Ceramic Datamodel</p>
+                        <br>
+                        <p class="ProfileData" id="profileName"></p>
+                        <p class="ProfileData" id="profileGender"></p>
+                        <p class="ProfileData" id="profileCountry"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ProfileForm">
+            <div class="BodyContainer">
+                <h2>Update Basic Profile on Ceramic</h2>
+                <br>
+                <form id="profileForm">
+                    <div class="formfield">
+                        <label class="formLabel" for="name">Name:</label>
+                        <input class="forminput" type="text" id="name" placeholder="John Doe">
+                    </div>
+                    <div class="formfield">
+                        <label class="formLabel" for="country">Country:</label>
+                        <input class="forminput" type="text" id="country" placeholder="USA">
+                    </div>
+                    <div class="formfield">
+                        <label class="formLabel" for="gender">Gender:</label>
+                        <select class="forminput" id="gender">
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                            <option value="non-binary">Non-Binary</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="formfield">
+                        <input class="forminput" type="submit" id="submitBtn" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- <button id="setBasicProf">Set Profile</button>
+    <button id="getBasicProf">Get Profile</button> -->
+    <script src="dist/bundle.js" type="module"></script>
+</body>
+
+</html>

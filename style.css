@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.SiteHeader {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: orange;
+}
+
+.HeaderContainer {
+    display: flex;
+    align-items: center;
+}
+
+
+.MainCont {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.DataBlock {
+
+    margin-bottom: 10px;
+
+}
+
+.BodyContainer {
+    background-color: lightsalmon;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 20px;
+    min-width: 250px;
+}
+
+.ProfileForm {
+    min-width: 400px;
+}
+
+
+
+.formfield {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.forminput {
+    min-width: 150px;
+
+}
+
+#submitBtn {
+    display: block;
+    margin: auto;
+    width: auto;
+}
+
+.ProfileData {
+    font-weight: bold;
+}

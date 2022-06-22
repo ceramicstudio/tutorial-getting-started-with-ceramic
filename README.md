@@ -1,3 +1,5 @@
+![image](https://img.shields.io/badge/Publish%20Date-June%202022-blue?style=for-the-badge)
+![image](https://img.shields.io/badge/Ceramic%20Version-V2.0.0-orange?style=for-the-badge)
 # Getting Started With Ceramic
 
 Welcome to Web 3!  

@@ -76,7 +76,7 @@ This guide connects to the Ethereum Blockchain, and therefore uses an Ethereum p
 
 Providers are used in place of running blockchain nodes by yourself. Providers have two main tasks:
 
-1. Tell yoru application what blockchain to connect to.
+1. Tell your application what blockchain to connect to.
 1. Once you are connected, run queries and send signed transactions that modify the blockchain's state.
 
 Metamask is one of the most popular blockchain providers and it is the provider will use to connect our application to the Ethereum Blockchain.
@@ -90,9 +90,9 @@ Simply put, providers *authenticate* users to perform actions on the blockchain.
 
 **[Data StreamTypes]**
 
-When I speak of data streams, I'm not talking about [streaming data] from a consumption point of view.  Streams are what Ceramic calls it's data structures.  Feel free to read more about [streams].
+When I speak of data streams, I'm not talking about [streaming data] from a consumption point of view.  Streams are what Ceramic calls its data structures.  Feel free to read more about [streams].
 
-A [StreamType] is just one of the possible data structures for a stream.  In this guide we will be working **indrectly** with the `TileDocument` [StreamType], which you can think of like a [JSON Object].  These StreamTypes are what handles everyting related to the data and they run on [Ceramic nodes].
+A [StreamType] is just one of the possible data structures for a stream.  In this guide we will be working **indirectly** with the `TileDocument` [StreamType], which you can think of like a [JSON Object].  These StreamTypes are what handles everyting related to the data and they run on [Ceramic nodes].
 
 Simply put, StreamTypes define the *data structure* and *how* that data's state is allowed to change.
 
@@ -377,7 +377,7 @@ In this step I will show you how to use providers, resolvers and Ceramic to tran
     >Packages that come from @ceramicnetwork are part of the core Ceramic protocol.  They help connect applications to Ceramic nodes.
     >
     >Packges that come from @glazed are not part of the core Ceramic protocol, they are referred to as `middleware` and provide developers with some added functionality and convenience.
-1. Following the dependecy imports you should setup a series of DOM Element selctors.  This not only makes our code easier to read as it is written, but in larger applications this technique can add performance benefits.  Add the following to `main.js`
+1. Following the dependency imports you should setup a series of DOM Element selectors.  This not only makes our code easier to read as it is written, but in larger applications this technique can add performance benefits.  Add the following to `main.js`
     ```javascript
     import { CeramicClient } from '@ceramicnetwork/http-client'
     import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
@@ -521,7 +521,7 @@ Let's add SIWE to this application!
 
     >The `DIDSession` is what it handling the SIWE authentication flow for you in this code snippet.
 
-1. There are usually some logic checks that our application needs to do before the authentication flow can be started.  When developing dapps a common check is to make sure that a provider is available.  In this case, [Metamask] adds itself as the provider in our browsers `window` object.  It is referencable by `window.ethereum`.  If the end-user of the application has not installed [Metamask], or another provider, the our application will not be able to connect to the blockchain.  Let's take this knowledge and apply it to a new [async function] called `auth`.  Add the code below to `main.js`:
+1. There are usually some logic checks that our application needs to do before the authentication flow can be started.  When developing dapps a common check is to make sure that a provider is available.  In this case, [Metamask] adds itself as the provider in our browsers `window` object.  It is referencable by `window.ethereum`.  If the end-user of the application has not installed [Metamask], or another provider, then our application will not be able to connect to the blockchain.  Let's take this knowledge and apply it to a new [async function] called `auth`.  Add the code below to `main.js`:
     ```javascript
     //main.js
 
@@ -1122,4 +1122,3 @@ Good luck and happy building!
 [Event Listeners]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
 [Self.id]: https://clay.self.id
 [Ceramic Discord]: https://chat.ceramic.network
-

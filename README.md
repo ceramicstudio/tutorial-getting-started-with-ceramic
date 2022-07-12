@@ -62,7 +62,7 @@ DID resolvers take a DID as input and return a [DID Document].
 
 This resolution process turn a DID from something generic into a document that accurately describes an identity and what methods and capabilities that identity is allow to perform.
 
-Simply put, a resovler hydrates a DID with *what* actions it is capable of performing.
+Simply put, a resolver hydrates a DID with *what* actions it is capable of performing.
 
 >The dependency packages used for this are:
 >- `key-did-resolver`
@@ -498,7 +498,7 @@ The authentication flow being used is called [Sign-In With Ethereum], but I will
 
 Let's add SIWE to this application!
 
-1. This application needs an [async function], I will name it `authenticateWithEthereum`, that uses the Provider then uses the Resovler and finally assigns the DID to the Ceramic Client you created earlier.  Add this code to `main.js` to accomplish these tasks:
+1. This application needs an [async function], I will name it `authenticateWithEthereum`, that uses the Provider then uses the Resolver and finally assigns the DID to the Ceramic Client you created earlier.  Add this code to `main.js` to accomplish these tasks:
 
     ```javascript
     //main.js

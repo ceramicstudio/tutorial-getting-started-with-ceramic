@@ -1085,7 +1085,7 @@ Good luck and happy building!
 [NodeJS]: https://www.nodejs.org
 [NPM]: https://www.npmjs.com/
 [Yarn]: https://yarnpkg.com/
-[GitHub]: https://www.github.com/ceramicstudio/guide-getting-started-with-ceramic
+[GitHub]: https://github.com/ceramicstudio/tutorial-getting-started-with-ceramic
 
 
 [Ceramic Youtube Channel]: https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw

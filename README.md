@@ -2,9 +2,9 @@
 ![image](https://img.shields.io/badge/Ceramic%20Version-V2.0.0-orange?style=for-the-badge)
 # Getting Started With Ceramic
 
-Welcome to Web 3!  
+Welcome to Web 3!
 
-In this beginner friendly guide, I'll give you all the tools and knowledge needed to integrate the [Ceramic Network] into your Web 3 [dapps].  
+In this beginner friendly guide, I'll give you all the tools and knowledge needed to integrate the [Ceramic Network] into your Web 3 [dapps].
 
 The Ceramic Network is a decentralized data network that aims to bring composable data to Web 3 dapps.  There are many types of data that Ceramic can work with, but for this guide we can treat Ceramic like a decentralized NOSQL document database.
 
@@ -16,7 +16,7 @@ This guide is meant for you to follow along, so expect diagrams and code example
 
 Along with this written guide, I have provided a [GitHub] repository containing all code I will reference.
 
-If you prefer a video guide, rather than a written guide, you can watch a video walkthrough on the [Ceramic Youtube Channel].
+If you prefer a video guide, rather than a written guide, you can watch a video walk through on the [Ceramic Youtube Channel].
 
 Before you get started, it is implied that you have the general web development skills outlined below:
 
@@ -62,7 +62,7 @@ DID resolvers take a DID as input and return a [DID Document].
 
 This resolution process turn a DID from something generic into a document that accurately describes an identity and what methods and capabilities that identity is allow to perform.
 
-Simply put, a resovler hydrates a DID with *what* actions it is capable of performing.
+Simply put, a resolver hydrates a DID with *what* actions it is capable of performing.
 
 >The dependency packages used for this are:
 >- `key-did-resolver`
@@ -92,7 +92,7 @@ Simply put, providers *authenticate* users to perform actions on the blockchain.
 
 When I speak of data streams, I'm not talking about [streaming data] from a consumption point of view.  Streams are what Ceramic calls its data structures.  Feel free to read more about [streams].
 
-A [StreamType] is just one of the possible data structures for a stream.  In this guide we will be working **indirectly** with the `TileDocument` [StreamType], which you can think of like a [JSON Object].  These StreamTypes are what handles everyting related to the data and they run on [Ceramic nodes].
+A [StreamType] is just one of the possible data structures for a stream.  In this guide we will be working **indirectly** with the `TileDocument` [StreamType], which you can think of like a [JSON Object].  These StreamTypes are what handles everything related to the data and they run on [Ceramic nodes].
 
 Simply put, StreamTypes define the *data structure* and *how* that data's state is allowed to change.
 
@@ -131,7 +131,7 @@ This is the web client that allows your application to connect to [Ceramic nodes
 
 The JavaScript you will be writing uses Node packages, making it server-side code.  However, web browsers require client-side code.
 
-Webpack is a nice module that will convert the server-side JavaScript that you will be writing into client-side JavaScript that your browser can understand.  
+Webpack is a nice module that will convert the server-side JavaScript that you will be writing into client-side JavaScript that your browser can understand.
 
 To accomplish this, we need a few dependencies.
 
@@ -332,11 +332,11 @@ In this step I will show you how to use providers, resolvers and Ceramic to tran
     yarn init -y
     ```
 1. Next, install the above mentioned dependencies:
-    
+
     **NPM**
 
     Dev dependencies
-    
+
     ```
     npm install -D buffer dids key-did-provider-ed25519 key-did-resolver webpack webpack-cli
     ```
@@ -349,7 +349,7 @@ In this step I will show you how to use providers, resolvers and Ceramic to tran
 
     **Yarn**
 
-    Dev dependencies 
+    Dev dependencies
 
     ```
     yarn add -D buffer dids key-did-provider-ed25519 key-did-resolver webpack webpack-cli
@@ -365,18 +365,18 @@ In this step I will show you how to use providers, resolvers and Ceramic to tran
 
 1. Start by importing the regular depndencies into this file:
     ```javascript
-    //main.js 
+    //main.js
 
     import { CeramicClient } from '@ceramicnetwork/http-client'
     import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
     import { DIDDataStore } from '@glazed/did-datastore'
     import { DIDSession } from '@glazed/did-session'
     ```
-    >Did you notice that some packages come from `@ceramicnetwork` and others come from `@glazed`? 
-    > 
+    >Did you notice that some packages come from `@ceramicnetwork` and others come from `@glazed`?
+    >
     >Packages that come from @ceramicnetwork are part of the core Ceramic protocol.  They help connect applications to Ceramic nodes.
     >
-    >Packges that come from @glazed are not part of the core Ceramic protocol, they are referred to as `middleware` and provide developers with some added functionality and convenience.
+    >Packages that come from @glazed are not part of the core Ceramic protocol, they are referred to as `middleware` and provide developers with some added functionality and convenience.
 1. Following the dependency imports you should setup a series of DOM Element selectors.  This not only makes our code easier to read as it is written, but in larger applications this technique can add performance benefits.  Add the following to `main.js`
     ```javascript
     import { CeramicClient } from '@ceramicnetwork/http-client'
@@ -399,7 +399,7 @@ In this step I will show you how to use providers, resolvers and Ceramic to tran
     import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
     import { DIDDataStore } from '@glazed/did-datastore'
     import { DIDSession } from '@glazed/did-session'
-    
+
     const profileForm = document.getElementById('profileForm')
     const walletBtn = document.getElementById('walletBtn')
     const profileName = document.getElementById('profileName')
@@ -423,7 +423,7 @@ In this step I will show you how to use providers, resolvers and Ceramic to tran
     import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
     import { DIDDataStore } from '@glazed/did-datastore'
     import { DIDSession } from '@glazed/did-session'
-    
+
     const profileForm = document.getElementById('profileForm')
     const walletBtn = document.getElementById('walletBtn')
     const profileName = document.getElementById('profileName')
@@ -444,7 +444,7 @@ In this step I will show you how to use providers, resolvers and Ceramic to tran
         tiles: {},
     }
     ```
-    >**Parts of a datamodel**
+    >**Parts of a data model**
     >
     >`schemas`: Define the JSON schema for the data model.
     >
@@ -453,7 +453,7 @@ In this step I will show you how to use providers, resolvers and Ceramic to tran
     >`tiles`: Individual data records based on parameters set within the schema.
     >
     >![](https://i.imgur.com/WDKidX1.png)
-1. The `DIDDataStore` allows the applicaiton to write and read data from Ceramic.  The `DIDDataStore` is based on Data models.  Add the following code to `main.js` to configure the `DIDDataStore` to use the `aliases` and `ceramic instance` defined above:
+1. The `DIDDataStore` allows the application to write and read data from Ceramic.  The `DIDDataStore` is based on Data models.  Add the following code to `main.js` to configure the `DIDDataStore` to use the `aliases` and `ceramic instance` defined above:
     ```javascript
     //main.js
 
@@ -461,7 +461,7 @@ In this step I will show you how to use providers, resolvers and Ceramic to tran
     import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
     import { DIDDataStore } from '@glazed/did-datastore'
     import { DIDSession } from '@glazed/did-session'
-    
+
     const profileForm = document.getElementById('profileForm')
     const walletBtn = document.getElementById('walletBtn')
     const profileName = document.getElementById('profileName')
@@ -492,7 +492,7 @@ Great job!  You now have the basic foundation needed to get this application up 
 
 This next section will guide you through using an Ethereum Provider, [Metamask], to authenticate a user with the Ethereum blockchain.
 
-The authentication flow being used is called [Sign-In With Ethereum], but I will refer to it as SIWE from here on out.  
+The authentication flow being used is called [Sign-In With Ethereum], but I will refer to it as SIWE from here on out.
 
 >Check out this awesome article to learn more: [Why Sign-In With Ethereum Is A Game Changer].
 
@@ -521,7 +521,7 @@ Let's add SIWE to this application!
 
     >The `DIDSession` is what it handling the SIWE authentication flow for you in this code snippet.
 
-1. There are usually some logic checks that our application needs to do before the authentication flow can be started.  When developing dapps a common check is to make sure that a provider is available.  In this case, [Metamask] adds itself as the provider in our browsers `window` object.  It is referencable by `window.ethereum`.  If the end-user of the application has not installed [Metamask], or another provider, then our application will not be able to connect to the blockchain.  Let's take this knowledge and apply it to a new [async function] called `auth`.  Add the code below to `main.js`:
+1. There are usually some logic checks that our application needs to do before the authentication flow can be started.  When developing dapps a common check is to make sure that a provider is available.  In this case, [Metamask] adds itself as the provider in our browsers `window` object.  It is referenceable by `window.ethereum`.  If the end-user of the application has not installed [Metamask], or another provider, then our application will not be able to connect to the blockchain.  Let's take this knowledge and apply it to a new [async function] called `auth`.  Add the code below to `main.js`:
     ```javascript
     //main.js
 
@@ -539,7 +539,7 @@ Let's add SIWE to this application!
 
         ceramic.did = did
     }
-    
+
     // newly added auth function here:
     async function auth() {
     if (window.ethereum == null) {
@@ -560,7 +560,7 @@ If you'd like to check your work, the complete `main.js` file should currently l
     import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
     import { DIDDataStore } from '@glazed/did-datastore'
     import { DIDSession } from '@glazed/did-session'
-    
+
     //cache a reference to the DOM Elements
     const profileForm = document.getElementById('profileForm')
     const walletBtn = document.getElementById('walletBtn')
@@ -602,14 +602,14 @@ If you'd like to check your work, the complete `main.js` file should currently l
 
         ceramic.did = did
     }
-    
+
     // check for a provider, then authenticate if the user has one injected:
     async function auth() {
         if (window.ethereum == null) {
         throw new Error('No injected Ethereum provider found')
         }
         await authenticateWithEthereum(window.ethereum)
-    }    
+    }
 ```
 ----
 ## Reading Data Using Ceramic
@@ -624,10 +624,10 @@ This function will be declared in the `main.js` file.
 
     async function getProfileFromCeramic() {
     try {
-        
+
         //use the DIDDatastore to get profile data from Ceramic
         const profile = await datastore.get('BasicProfile')
-        
+
         //render profile data to the DOM (not written yet)
         renderProfileData(profile)
     } catch (error) {
@@ -635,7 +635,7 @@ This function will be declared in the `main.js` file.
         }
     }
     ```
-    As you can see, by calling `datastore.get()` method, you can simply reference the `definition` of the data model you wish to read data from.  
+    As you can see, by calling `datastore.get()` method, you can simply reference the `definition` of the data model you wish to read data from.
 
     The DIDDatastore uses the DID assinged to the Ceramic client to make this call.  It returns the profile object white get's stored in the `profile` variable.
 1. You will need to create the `renderProfileData` function to extract this profile data and show it in the browser window.  Since this is NOT a guide on web development I will not go into detail about what this function is doing.  Add the following to your `main.js` file:
@@ -660,7 +660,7 @@ A complete version of what `main.js` should look like at this point can be found
     import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
     import { DIDDataStore } from '@glazed/did-datastore'
     import { DIDSession } from '@glazed/did-session'
-    
+
     //cache a reference to the DOM Elements
     const profileForm = document.getElementById('profileForm')
     const walletBtn = document.getElementById('walletBtn')
@@ -702,22 +702,22 @@ A complete version of what `main.js` should look like at this point can be found
 
         ceramic.did = did
     }
-    
+
     // check for a provider, then authenticate if the user has one injected:
     async function auth() {
         if (window.ethereum == null) {
         throw new Error('No injected Ethereum provider found')
         }
         await authenticateWithEthereum(window.ethereum)
-    } 
+    }
 
     //retrieve BasicProfile data from ceramic using the DIDDatastore
     async function getProfileFromCeramic() {
         try {
-        
+
         //use the DIDDatastore to get profile data from Ceramic
         const profile = await datastore.get('BasicProfile')
-        
+
         //render profile data to the DOM (not written yet)
         renderProfileData(profile)
         } catch (error) {
@@ -781,16 +781,16 @@ The next piece to implement is writing data to the Ceramic Network using the `DI
         }
     }
     ```
-    >If you are wondering how I came up with the object properties of `name`, `country` and `gender`, they are all found on the [BasicProfile] datamodel.  There are additional properties for a BasicProfile which are not referenced in this project.  You should explore the use of these properties in you own projects!
+    >If you are wondering how I came up with the object properties of `name`, `country` and `gender`, they are all found on the [BasicProfile] data model.  There are additional properties for a BasicProfile which are not referenced in this project.  You should explore the use of these properties in you own projects!
 
 Wow!  You made it!  This is all you need to get started with Ceramic.  You now know enough to run out and create amazing dapps.
 
-You're not quite done yet though.  There are some minor things that have to be built to get this application fully working.  
+You're not quite done yet though.  There are some minor things that have to be built to get this application fully working.
 
 
 ## Making The Buttons Work
 
-This section as well as the next, [Configuring Webpack], are not necessarliy Ceramic related.  These sections cover some necessary taks that must take place to tie in the buttons for the applicaiton and to conver the server-side to into something the browser can understand.
+This section as well as the next, [Configuring Webpack], are not necessarily Ceramic related.  These sections cover some necessary tasks that must take place to tie in the buttons for the application and to convert the server-side to into something the browser can understand.
 
 **How buttons work**
 
@@ -824,7 +824,7 @@ All of the following code will need to be placed in `main.js`.
     profileGender.innerHTML = "Gender: "
     profileCountry.innerHTML = "Country: "
     ```
-    
+
 3. The last thing is adding two event listeners.  One will go on the "connect wallet" button and it will call the `connectWallet` function defined above.  The other will go on the button that is a part of the `profileForm` element.  Add these to lines to `main.js`:
     ```javascript
     walletBtn.addEventListener('click', async () => await connectWallet(auth, getProfileFromCeramic))
@@ -846,7 +846,7 @@ Alright!  That's all the JavaScript that the application needs!  Double check yo
     import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
     import { DIDDataStore } from '@glazed/did-datastore'
     import { DIDSession } from '@glazed/did-session'
-    
+
     //cache a reference to the DOM Elements
     const profileForm = document.getElementById('profileForm')
     const walletBtn = document.getElementById('walletBtn')
@@ -896,22 +896,22 @@ Alright!  That's all the JavaScript that the application needs!  Double check yo
 
         ceramic.did = did
     }
-    
+
     // check for a provider, then authenticate if the user has one injected:
     async function auth() {
         if (window.ethereum == null) {
         throw new Error('No injected Ethereum provider found')
         }
         await authenticateWithEthereum(window.ethereum)
-    } 
+    }
 
     //retrieve BasicProfile data from ceramic using the DIDDatastore
     async function getProfileFromCeramic() {
         try {
-        
+
         //use the DIDDatastore to get profile data from Ceramic
         const profile = await datastore.get('BasicProfile')
-        
+
         //render profile data to the DOM (not written yet)
         renderProfileData(profile)
         } catch (error) {
@@ -954,7 +954,7 @@ Alright!  That's all the JavaScript that the application needs!  Double check yo
         const country = document.getElementById('country').value
         const gender = document.getElementById('gender').value
 
-        // object needs to conform to the datamodel
+        // object needs to conform to the data model
         // name -> exists
         // hair-color -> DOES NOT EXIST
         return {
@@ -1063,7 +1063,7 @@ The following section will configure [Webpack] for this application.
 
 ## Congratulations!
 
-Congrats!  You can now re-open the `index.html` file in your browser or by using [LiveShare].  
+Congrats!  You can now re-open the `index.html` file in your browser or by using [LiveShare].
 
 Using your [Metamask] wallet you will be able to [Sign-In With Ethereum], retrieve your `BasicProfile` from Ceramic and make changes to a limited set of properties for that profile!
 

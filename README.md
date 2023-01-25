@@ -498,7 +498,7 @@ The authentication flow being used is called [Sign-In With Ethereum], but I will
 
 Let's add SIWE to this application!
 
-1. This application needs an [async function], I will name it `authenticateWithEthereum`, that uses the Provider then uses the Resovler and finally assigns the DID to the Ceramic Client you created earlier.  Add this code to `main.js` to accomplish these tasks:
+1. This application needs an [async function], I will name it `authenticateWithEthereum`, that uses the Provider then uses the Resolver and finally assigns the DID to the Ceramic Client you created earlier.  Add this code to `main.js` to accomplish these tasks:
 
     ```javascript
     //main.js
